@@ -9,12 +9,16 @@
  * - After another click, the paragraph should not be rendered.
  * - Finish the Message component by implementing this logic.
  */
+import { useState } from "react";
 
 export function Message() {
+	const [showParagraph, setShowParagraph] = useState(false);
 	return (
 		<>
-			<a href="#">Want to buy a new car?</a>
-			<p>Call +11 22 33 44 now!</p>
+			<a role="button" onClick={() => setShowParagraph(!showParagraph)}>Want to buy a new car?</a>
+			{showParagraph ? (
+				<p>Call +11 22 33 44 now!</p>
+			) : null}
 		</>
 	);
 }

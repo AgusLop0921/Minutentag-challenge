@@ -1,10 +1,9 @@
-
-import { Message } from "./components/Message";
-import { FocusableInput } from "./components/FocusableInput";
-import { ImageGallery } from "./components/ImageGallery";
-import { PlayerStatus } from "./components/PlayerStatus";
-import { TeamsList } from "./components/TeamsList";
-
+import { Message } from "./components/Message/Message";
+import { FocusableInput } from "./components/FocusableInput/FocusableInput";
+import { ImageGallery } from "./components/ImageGallery/ImageGallery";
+import { PlayerStatus } from "./components/PlayerStatus/PlayerStatus";
+import { TeamsList } from "./components/TeamsList/TeamsList";
+import { Rating } from "./components/Rating/Rating";
 import './App.css';
 
 export default function App() {
@@ -25,6 +24,8 @@ export default function App() {
       <br />
       <h3>'TeamsList' test</h3>
       <TeamsList />
+      <h3>'Rating' test</h3>
+      <Rating />
     </div>
   );
 }
