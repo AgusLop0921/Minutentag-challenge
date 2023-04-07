@@ -11,87 +11,116 @@
  */
 
 import { useState } from "react";
+import uuid from "react-uuid";
+import "./styles.css";
 
 const TEAMS = [
-	{
-		name: "Red",
-		players: ["Robin", "Rey", "Roger", "Richard"],
-		games: [
-			{
-				score: 10,
-				city: "LA",
-			},
-			{
-				score: 1,
-				city: "NJ",
-			},
-			{
-				score: 3,
-				city: "NY",
-			},
-		],
-	},
-	{
-		name: "Blue",
-		players: ["Bob", "Ben"],
-		games: [
-			{
-				score: 6,
-				city: "CA",
-			},
-			{
-				score: 3,
-				city: "LA",
-			},
-		],
-	},
-	{
-		name: "Yellow",
-		players: ["Yesmin", "Yuliana", "Yosemite"],
-		games: [
-			{
-				score: 2,
-				city: "NY",
-			},
-			{
-				score: 4,
-				city: "LA",
-			},
-			{
-				score: 7,
-				city: "AK",
-			},
-		],
-	},
+  {
+    name: "Red",
+    players: ["Robin", "Rey", "Roger", "Richard"],
+    games: [
+      {
+        score: 10,
+        city: "LA",
+      },
+      {
+        score: 1,
+        city: "NJ",
+      },
+      {
+        score: 3,
+        city: "NY",
+      },
+    ],
+  },
+  {
+    name: "Blue",
+    players: ["Bob", "Ben"],
+    games: [
+      {
+        score: 6,
+        city: "CA",
+      },
+      {
+        score: 3,
+        city: "LA",
+      },
+    ],
+  },
+  {
+    name: "Yellow",
+    players: ["Yesmin", "Yuliana", "Yosemite"],
+    games: [
+      {
+        score: 2,
+        city: "NY",
+      },
+      {
+        score: 4,
+        city: "LA",
+      },
+      {
+        score: 7,
+        city: "AK",
+      },
+    ],
+  },
 ];
 
 export function TeamsList() {
-	const [teams, setTeams] = useState(TEAMS);
+  const [teams, setTeams] = useState(TEAMS);
 
-	// Order teams by score (highest to lowest)
-	function orderTeamByScoreHighestToLowest() {
-		// Write your code here
-	}
+  // Order teams by score (highest to lowest)
+  function orderTeamByScoreHighestToLowest() {
+    const orderedTeams = teams.slice().sort(
+      (a, b) =>
+		b.games.reduce((n, { score }) => n + score, 0) -
+        a.games.reduce((n, { score }) => n + score, 0) 
+    );
 
-	// Order teams by score (lowest to highest)
-	function orderTeamByScoreLowestToHighest() {
-		// Write your code here
-	}
+    setTeams(orderedTeams);
+  }
 
-	// Filtering teams that with at least 3 players
-	function teamsWithMoreThanThreePlayers() {
-		// Write your code here
-	}
+  // Order teams by score (lowest to highest)
+  function orderTeamByScoreLowestToHighest() {
+    const orderedTeams = teams.slice().sort(
+      (a, b) =>
+        a.games.reduce((n, { score }) => n + score, 0) -
+        b.games.reduce((n, { score }) => n + score, 0)
+    );
+    setTeams(orderedTeams);
+  }
 
-	return (
-		<div>
-			<button onClick={() => setTeams(TEAMS)}>Initial list</button>
+  // Filtering teams that with at least 3 players
+  function teamsWithMoreThanThreePlayers() {
+    setTeams(teams.filter((team) => team.players.length >= 3));
+  }
 
-			<button>Highest to Lowest</button>
-			<button>Lowest to Highest</button>
-			<button>Teams with at least 3 players</button>
+  return (
+    <>
+      <button onClick={() => setTeams(TEAMS)}>Initial list</button>
 
-			<ul className="teams">{/** Render the list of teams */}</ul>
-		</div>
-	);
+      <button onClick={() => orderTeamByScoreHighestToLowest()}>
+        Highest to Lowest
+      </button>
+      <button onClick={() => orderTeamByScoreLowestToHighest()}>
+        Lowest to Highest
+      </button>
+      <button onClick={() => teamsWithMoreThanThreePlayers()}>
+        Teams with at least 3 players
+      </button>
+
+      <ul className="teams">
+        {teams.map((team) => (
+          <li key={uuid()} data-testid="teams-list">
+            {team?.name +
+              " / " +
+              team.players.length +
+              " / " +
+              team.games.reduce((n, { score }) => n + score, 0)}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
