@@ -12,13 +12,13 @@
 import { useState } from "react";
 
 export function Message() {
-	const [showParagraph, setShowParagraph] = useState(false);
-	return (
-		<>
-			<a role="button" onClick={() => setShowParagraph(!showParagraph)}>Want to buy a new car?</a>
-			{showParagraph ? (
-				<p>Call +11 22 33 44 now!</p>
-			) : null}
-		</>
-	);
+  const [showParagraph, setShowParagraph] = useState(false);
+  return (
+    <>
+      <a role="button" onClick={() => setShowParagraph(!showParagraph)}>
+        Want to buy a new car?
+      </a>
+      {showParagraph ? <p>Call +11 22 33 44 now!</p> : null}
+    </>
+  );
 }

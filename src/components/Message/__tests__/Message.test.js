@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Message } from '../Message';
 
-describe('renders learn react link', () => {
+describe('Message', () => {
   it('render anchor text', () => {  
     render(<Message />);
     expect(screen.getByText("Want to buy a new car?")).toBeInTheDocument();
