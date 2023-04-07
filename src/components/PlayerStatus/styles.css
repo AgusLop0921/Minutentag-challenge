@@ -1,0 +1,12 @@
+.on {
+    color: #61a565;
+}
+.off{
+    color: #f74345;
+}
+
+h1, h3 {
+    transition-property: color;
+    transition-duration: 1s;
+    transition-delay: .1s;
+}
