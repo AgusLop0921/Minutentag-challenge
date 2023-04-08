@@ -15,5 +15,7 @@
 .tabs-content{
     margin: 50px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 

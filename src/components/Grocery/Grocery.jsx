@@ -21,31 +21,57 @@
  *     </li>
  *   </ul>
  */
-
+import { useState } from "react";
+import "./styles.css";
 function Product(props) {
-	function handlePlus() {
-		// logic to vote a product
-	}
+  const { product, onUpvote, onDownvote } = props;
+  function handlePlus() {
+    onUpvote(product.name);
+  }
 
-	function handleMinus() {
-		// logic to unvote a product
-	}
+  function handleMinus() {
+    onDownvote(product.name);
+  }
 
-	return (
-		<li>
-			<span>
-				{/* Product name */} - votes: {/* Number of votes*/}
-			</span>
-			<button onClick={handlePlus}>+</button>
-			<button onClick={handleMinus}>-</button>
-		</li>
-	);
+  return (
+    <li>
+      <span>
+        {product.name} - votes: {product.votes}
+      </span>
+	  <div>
+		<button onClick={handlePlus}>+</button>
+		<button onClick={handleMinus}>
+			-
+		</button>
+	  </div>
+    </li>
+  );
 }
 
 export function Grocery({ products }) {
-	return (
-		<ul>
-			{/* Render an array of products, which should call onVote when + or - is clicked */}
-		</ul>
-	);
+  const [productsArray, setProductsArray] = useState(products);
+
+  function upvote(name) {
+    const productArrayAux = productsArray.slice();
+    productArrayAux.find((product) =>
+      product.name === name ? (product.votes = product.votes + 1) : null
+    );
+    setProductsArray(productArrayAux);
+  }
+
+  function downvote(name) {
+    const productArrayAux = productsArray.slice();
+    productArrayAux.find((product) =>
+      product.name === name ? (product.votes = product.votes - 1) : null
+    );
+    console.log(productArrayAux);
+    setProductsArray(productArrayAux);
+  }
+  return (
+    <ul>
+      {productsArray.map((product) => (
+        <Product product={product} onUpvote={upvote} onDownvote={downvote} />
+      ))}
+    </ul>
+  );
 }

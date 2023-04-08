@@ -1,0 +1,16 @@
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+span {
+    color: rgb(71, 67, 67);
+}
+ul {
+    width: 400px;
+}
+
+button {
+    margin: 0 5px;
+}
