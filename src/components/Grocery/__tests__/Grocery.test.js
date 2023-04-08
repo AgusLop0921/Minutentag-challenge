@@ -1,20 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { products } from '../../../mocks/mocks';
 import { Grocery } from '../Grocery';
-
-const products = [
-    {
-        name: "Oranges", votes: 0
-    },
-    {
-        name: "Bananas", votes: 0
-    },
-    {
-        name: "Apples", votes: 0
-    },
-    {
-        name: "Tomatoes", votes: 0
-    },
-]
 
 describe('Grocery', () => {
     it('render all the products with name and 0 votes first', () => {
