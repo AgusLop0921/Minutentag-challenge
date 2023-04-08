@@ -97,7 +97,7 @@ export function TeamsList() {
   }
 
   return (
-    <>
+    <div className="teamlist-container">
       <button onClick={() => setTeams(TEAMS)}>Initial list</button>
 
       <button onClick={() => orderTeamByScoreHighestToLowest()}>
@@ -121,6 +121,6 @@ export function TeamsList() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

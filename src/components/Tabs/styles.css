@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     background-color: #fffc;
     font-size: 16px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
@@ -19,3 +20,12 @@
     justify-content: center;
 }
 
+.tab {
+    min-width: 100px;
+}
+
+@media (max-width: 1000px) {
+    .tabs-header {
+        height: 120px
+    }
+  }

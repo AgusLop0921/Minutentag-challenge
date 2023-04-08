@@ -10,15 +10,14 @@
  * - Finish the Message component by implementing this logic.
  */
 import { useState } from "react";
-
 export function Message() {
   const [showParagraph, setShowParagraph] = useState(false);
   return (
-    <>
+    <div className="message-container">
       <a href="#!" role="button" onClick={() => setShowParagraph(!showParagraph)}>
         Want to buy a new car?
       </a>
       {showParagraph ? <p>Call +11 22 33 44 now!</p> : null}
-    </>
+    </div>
   );
 }
