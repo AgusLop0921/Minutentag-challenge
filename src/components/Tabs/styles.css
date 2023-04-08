@@ -1,0 +1,19 @@
+.active {
+    color: #006ead;
+}
+
+.tabs-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fffc;
+    font-size: 16px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    height: 50px;
+}
+
+.tabs-content{
+    margin: 50px;
+    text-align: center;
+}
+

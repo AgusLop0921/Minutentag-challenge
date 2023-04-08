@@ -1,0 +1,16 @@
+.image-gallery{
+    display: flex;
+    justify-content: center;
+}    
+
+img {
+    display: flex;
+    max-width: 400px;
+    height: 224px;
+}
+
+.remove {
+ width: 24px;
+ height: 24px;
+ margin-top: 20px;
+}
