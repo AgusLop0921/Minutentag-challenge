@@ -14,5 +14,5 @@ describe('PlayerStatus', () => {
         fireEvent.click(screen.getByText("Toggle status"));
         expect(screen.getByText("Away")).toBeInTheDocument();
         expect(screen.getByText("2")).toBeInTheDocument();
-    }); 
+    });
 });

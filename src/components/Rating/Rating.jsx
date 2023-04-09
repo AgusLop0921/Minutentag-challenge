@@ -24,7 +24,7 @@
  * </div>
  */
 import { useState } from "react";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 
 const STARTS = 5;
@@ -36,8 +36,8 @@ export function Rating() {
     <div id="rating">
       {START_ARRAY.map((r, index) => (
         <span
-          key={uuid()}
-		  data-testid="star"
+          key={uuidv4()}
+          data-testid="star"
           className={rate >= index ? "active" : null}
           onClick={() => {
             rate !== index ? setRate(index) : setRate(-1);

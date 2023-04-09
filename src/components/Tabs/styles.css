@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     background-color: #fffc;
     font-size: 16px;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     height: 50px;
 }
 
@@ -28,4 +28,4 @@
     .tabs-header {
         height: 120px
     }
-  }
+}

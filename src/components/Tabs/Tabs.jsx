@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+
 export function Tabs({ tabs }) {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -9,18 +10,14 @@ export function Tabs({ tabs }) {
         {tabs.map((tab, index) => (
           <div
             key={index}
-            className={`tab ${
-              activeTabIndex === index ? "active" : ""
-            }`}
+            className={`tab ${activeTabIndex === index ? "active" : ""}`}
             onClick={() => setActiveTabIndex(index)}
           >
             {tab.label}
           </div>
         ))}
       </div>
-      <div className="tabs-content">
-        {tabs[activeTabIndex].content}
-      </div>
+      <div className="tabs-content">{tabs[activeTabIndex].content}</div>
     </div>
   );
 }

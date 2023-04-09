@@ -11,7 +11,7 @@
  */
 
 import { useState } from "react";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 
 const TEAMS = [
@@ -71,30 +71,34 @@ export function TeamsList() {
   const [teams, setTeams] = useState(TEAMS);
 
   // Order teams by score (highest to lowest)
-  function orderTeamByScoreHighestToLowest() {
-    const orderedTeams = teams.slice().sort(
-      (a, b) =>
-		b.games.reduce((n, { score }) => n + score, 0) -
-        a.games.reduce((n, { score }) => n + score, 0) 
-    );
+  const orderTeamByScoreHighestToLowest = () => {
+    const orderedTeams = teams
+      .slice()
+      .sort(
+        (a, b) =>
+          b.games.reduce((n, { score }) => n + score, 0) -
+          a.games.reduce((n, { score }) => n + score, 0)
+      );
 
     setTeams(orderedTeams);
-  }
+  };
 
   // Order teams by score (lowest to highest)
-  function orderTeamByScoreLowestToHighest() {
-    const orderedTeams = teams.slice().sort(
-      (a, b) =>
-        a.games.reduce((n, { score }) => n + score, 0) -
-        b.games.reduce((n, { score }) => n + score, 0)
-    );
+  const orderTeamByScoreLowestToHighest = () => {
+    const orderedTeams = teams
+      .slice()
+      .sort(
+        (a, b) =>
+          a.games.reduce((n, { score }) => n + score, 0) -
+          b.games.reduce((n, { score }) => n + score, 0)
+      );
     setTeams(orderedTeams);
-  }
+  };
 
   // Filtering teams that with at least 3 players
-  function teamsWithMoreThanThreePlayers() {
+  const teamsWithMoreThanThreePlayers = () => {
     setTeams(teams.filter((team) => team.players.length >= 3));
-  }
+  };
 
   return (
     <div className="teamlist-container">
@@ -112,7 +116,7 @@ export function TeamsList() {
 
       <ul className="teams">
         {teams.map((team) => (
-          <li key={uuid()} data-testid="teams-list">
+          <li key={uuidv4()} data-testid="teams-list">
             {team?.name +
               " / " +
               team.players.length +

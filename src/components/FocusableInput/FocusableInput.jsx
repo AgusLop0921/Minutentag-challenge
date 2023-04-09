@@ -22,7 +22,11 @@ export function FocusableInput({ focusable = true }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (focusable && inputRef.current && document.activeElement !== inputRef.current) {
+    if (
+      focusable &&
+      inputRef.current &&
+      document.activeElement !== inputRef.current
+    ) {
       inputRef.current.focus();
     }
   }, [focusable]);

@@ -22,7 +22,7 @@
  *   </ul>
  */
 import { useState } from "react";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 function Product(props) {
   const { product, onUpvote, onDownvote } = props;
@@ -39,12 +39,10 @@ function Product(props) {
       <span>
         {product.name} - votes: {product.votes}
       </span>
-	  <div>
-		<button onClick={handlePlus}>+</button>
-		<button onClick={handleMinus}>
-			-
-		</button>
-	  </div>
+      <div>
+        <button onClick={handlePlus}>+</button>
+        <button onClick={handleMinus}>-</button>
+      </div>
     </li>
   );
 }
@@ -70,7 +68,12 @@ export function Grocery({ products }) {
   return (
     <ul>
       {productsArray.map((product) => (
-        <Product key={uuid()} product={product} onUpvote={upvote} onDownvote={downvote} />
+        <Product
+          key={uuidv4()}
+          product={product}
+          onUpvote={upvote}
+          onDownvote={downvote}
+        />
       ))}
     </ul>
   );

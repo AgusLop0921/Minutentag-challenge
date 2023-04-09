@@ -47,17 +47,4 @@ describe('TeamList', () => {
         expect(screen.queryByText("Blue / 2 / 9")).not.toBeInTheDocument();
         expect(screen.getByText("Yellow / 3 / 13")).toBeInTheDocument();
     });
-    //   it('render all the stars without active class the first time', () => {  
-    //     const { container } =  render(<Rating />);
-
-    //     expect(container.getElementsByClassName('active').length).toBe(0);
-    //   });
-
-    //   it('add active to one star when is clicked', () => {  
-    //     const { container } =   render(<Rating />);
-    //     const starElement = screen.getAllByTestId("star")[0];
-    //     fireEvent.click(starElement);
-
-    //     expect(container.getElementsByClassName('active').length).toBe(1);
-    //   });
 });
