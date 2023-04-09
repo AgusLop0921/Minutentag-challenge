@@ -23,7 +23,7 @@ export function ListItemsForNavigation(props) {
     }
   }, [selectedIndex]);
 
-  function handleKeyDown(event) {
+  const handleKeyDown = (event) => {
     let newIndex;
 
     switch (event.key) {

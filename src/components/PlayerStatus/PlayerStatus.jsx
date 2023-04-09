@@ -23,7 +23,7 @@ export function PlayerStatus() {
   const [counter, setCounter] = useState(0);
 
   // Toggle between the two status values - 'Away' and 'Online'
-  function onToggleStatus() {
+  const onToggleStatus = () => {
     setStatus(status === "Online" ? "Away" : "Online");
   }
 

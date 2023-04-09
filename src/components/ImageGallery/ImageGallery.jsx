@@ -24,7 +24,7 @@ function Image({ src, onRemove }) {
 export function ImageGallery({ links }) {
   const [arrayLinks, setArrayLinks] = useState(links);
 
-  function removeLink(src) {
+  const removeLink = (src) => {
     setArrayLinks(arrayLinks.filter((link) => link !== src));
   }
 

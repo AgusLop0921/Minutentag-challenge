@@ -26,11 +26,11 @@ import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 function Product(props) {
   const { product, onUpvote, onDownvote } = props;
-  function handlePlus() {
+  const handlePlus = () => {
     onUpvote(product.name);
   }
 
-  function handleMinus() {
+  const handleMinus = () => {
     onDownvote(product.name);
   }
 
@@ -50,7 +50,7 @@ function Product(props) {
 export function Grocery({ products }) {
   const [productsArray, setProductsArray] = useState(products);
 
-  function upvote(name) {
+  const upvote = (name) => {
     const productArrayAux = productsArray.slice();
     productArrayAux.find((product) =>
       product.name === name ? (product.votes = product.votes + 1) : null
@@ -58,7 +58,7 @@ export function Grocery({ products }) {
     setProductsArray(productArrayAux);
   }
 
-  function downvote(name) {
+  const downvote = (name) => {
     const productArrayAux = productsArray.slice();
     productArrayAux.find((product) =>
       product.name === name ? (product.votes = product.votes - 1) : null
